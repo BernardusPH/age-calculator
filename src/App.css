@@ -12,6 +12,8 @@ main{
         width: clamp(750px,80%,840px);
         padding: 56px;
         height:700px;
+        border-radius:24px 24px 200px 24px ;
+       
         
     }
 }
