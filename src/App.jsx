@@ -24,13 +24,14 @@ function App() {
     );
 
     var diff = new Date(Date.now() - birthday.getTime());
-
+      if(Date.now()>birthday.getTime()){
     setAge({
       years: Math.abs(diff.getUTCFullYear() - today.getUTCFullYear()),
       months: Math.abs(diff.getUTCMonth() - today.getUTCMonth()),
       days: Math.abs(diff.getUTCDate() - today.getUTCDate()),
     });
-    if(diff.getUTCMonth() == today.getUTCMonth() && diff.getUTCDate() == today.getUTCDate() ){
+  }
+    if(diff.getUTCMonth() == today.getUTCMonth() && diff.getUTCDate() == today.getUTCDate()  ){
       setBirthday(true)
     }
   };
