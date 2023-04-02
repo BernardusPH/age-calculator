@@ -31,7 +31,7 @@ function App() {
     ) {
       setPopUp({
         title: "Happy BirthDay",
-        text: " Today is a special day for you because to day is your birthday. You better have a good time today.",
+        text: " Today is a special day for you because today is your birthday. You better have a good time today.",
       });
     }
     if (Date.now() < birthday.getTime()) {
