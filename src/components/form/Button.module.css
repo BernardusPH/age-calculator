@@ -27,7 +27,7 @@ hr {
 .form-submit-button:hover {
   background-color: var(--Off-black);
 }
-.form-submit-button:focus-within {
+.form-submit-button:focus-visible {
   background-color: var(--Off-black);
 }
 

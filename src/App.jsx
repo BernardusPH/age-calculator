@@ -12,21 +12,17 @@ function App() {
   let monthInput = useRef();
   let yearInput = useRef();
   let [age, setAge] = useState({ years: "", months: "", days: "" });
-  let [popUp, setPopUp] = useState({ title: "", text: "" });
+let [birthDay,setBirthDay]=useState(false)
 
-  const calculateAge = () => {
-    let birthdate = new Date(yearInput.current.value, monthInput.current.value - 1, dayInput.current.value);
-  
-    // Check if input date is valid
+  const calculateAge = (birthdate) => {
 
-  
     let today = new Date();
-  
+
     // Calculate age based on difference between birthdate and today's date
     let age = today.getFullYear() - birthdate.getFullYear();
     let month = today.getMonth() - birthdate.getMonth();
     let day = today.getDate() - birthdate.getDate();
-  
+
     // Adjust month and day components if necessary
     if (month < 0 || (month === 0 && today.getDate() < birthdate.getDate())) {
       age--;
@@ -34,40 +30,35 @@ function App() {
     }
     if (day < 0) {
       month--;
-      let daysInMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      let daysInMonth = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      ).getDate();
       day += daysInMonth;
     }
-    if (today.getFullYear() == birthdate.getFullYear()&& (today.getMonth()<birthdate.getMonth()||today.getDate()<birthdate.getDate()) ) {
-      setPopUp({
-        title: "Calculation error",
-        text: "Invalid birthdate. Please enter a valid date.",
-      });
-      return;
-    }
-
-   
-    
   
+
     // Check if today is user's birthday
-    if (birthdate.getDate() === today.getDate() && birthdate.getMonth() === today.getMonth()) {
-      setPopUp({
-        title: "Happy Birthday!",
-        text: "Today is your birthday! Have a great day!",
-      });
+    if (
+      birthdate.getDate() === today.getDate() &&
+      birthdate.getMonth() === today.getMonth()
+    ) {
+     setBirthDay(true)
     }
     setAge({ years: age, months: month, days: day });
   };
-  
-  
 
-  
   function closeModal() {
-    setPopUp({ title: "", text: "" });
+    setBirthDay(false)
+  }
+  function clearDate(){
+    setAge({ years: "", months: "", days: "" });
   }
   return (
     <React.Fragment>
-      {popUp.title !== "" && popUp.text !== "" && (
-        <Modal onclick={closeModal} title={popUp.title} text={popUp.text} />
+      {birthDay && (
+        <Modal onclick={closeModal}  />
       )}
       <Header />
       <main>
@@ -76,12 +67,13 @@ function App() {
           dayInput={dayInput}
           monthInput={monthInput}
           yearInput={yearInput}
+          clearDate={clearDate}
         />
         <Age age={age} />
       </main>
       <Footer />
     </React.Fragment>
   );
-   }
+}
 
 export default App;
