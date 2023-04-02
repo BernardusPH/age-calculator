@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Header from "./components/heading/Header.jsx";
-import Form from "./components/form/form.jsx";
+import Form from "./components/form/Form.jsx";
 import Age from "./components/result/Age.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Birthday from "./components/modal/Modal.jsx"
