@@ -1,0 +1,20 @@
+.user-age-container {
+  list-style: none;
+}
+.user-age-container span {
+  font-size: 1.7rem;
+  font-weight: var(--hugeIt);
+  font-style: italic;
+}
+span.age-results {
+  color: var(--Purple);
+}
+span.age-dates {
+  color: var(--Off-black);
+}
+
+@media (min-width:800px) {
+  .user-age-container span{
+    font-size: 3.1rem;
+  } 
+}

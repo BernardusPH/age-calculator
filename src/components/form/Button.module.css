@@ -1,0 +1,39 @@
+.form-submit-container {
+  position: relative;
+  height: 64px;
+  display: grid;
+  place-items: center;
+
+}
+hr {
+  width: 100%;
+}
+.form-submit-button {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--Purple);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.form-submit-button:hover {
+  background-color: var(--Off-black);
+}
+
+@media (min-width: 800px) {
+ 
+  .form-submit-button {
+    width: 96px;
+    height: 96px;
+    left: calc(85% + 1.5vw);
+    transform: translateY(-50%);
+  }
+}

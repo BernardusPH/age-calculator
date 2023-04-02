@@ -1,0 +1,13 @@
+.form-input-container{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+   
+}
+@media (min-width:800px){
+    .form-input-container{
+        justify-content: unset;
+        gap: 20px;
+        
+    }
+}

@@ -1,0 +1,44 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 24px;
+}
+h2 {
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+p {
+  line-height: 1.5;
+}
+
+.modal > * {
+  margin-top: 0.4rem;
+}
+
+.modal footer button {
+  margin: auto;
+  display: block;
+  background-color: var(--Purple);
+  border-radius: 10px;
+  width: 150px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+.modal footer button:hover{
+    opacity: .7;
+}
