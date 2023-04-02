@@ -17,6 +17,7 @@ function Form(props) {
     var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const d = new Date();
 
+  
     if (
       props.dayInput.current.value == "" ||
       props.dayInput.current.value >

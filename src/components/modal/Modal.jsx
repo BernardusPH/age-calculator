@@ -6,24 +6,18 @@ function Backdrop(props) {
 function Modal(props) {
     return(
   <div className="modal">
-    <h2>Happy BirthDay</h2>
-    <p>Today is a special day for you because to day is your birthday</p>
-    <p>
-      Lets celebrate:{" "}
-      <a target="_blank" href="https://www.youtube.com/watch?v=w4sld2U7lxk&ab_channel=eldolendotv">
-        Happy Birthday
-      </a>
-    </p>
+    <h2>{props.title}</h2>
+   {props.text}
     <footer>
       <button onClick={props.onClose}>Close</button>
     </footer>
   </div>);
 }
-function Birthday(props) {
+function PopUp(props) {
   return (
     <>
       {ReactDOM.createPortal(
-        <Modal onClose={props.onclick} />,
+        <Modal onClose={props.onclick} title={props.title} text={props.text} />,
         document.getElementById("modal-overlay")
       )}
       {ReactDOM.createPortal(
@@ -34,4 +28,4 @@ function Birthday(props) {
   );
 }
 
-export default Birthday;
+export default PopUp;
