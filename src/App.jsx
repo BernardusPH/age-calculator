@@ -15,38 +15,50 @@ function App() {
   let [popUp, setPopUp] = useState({ title: "", text: "" });
 
   const calculateAge = () => {
-    var today = new Date(0);
+    let birthdate = new Date(yearInput.current.value, monthInput.current.value - 1, dayInput.current.value);
+  
+    // Check if input date is valid
 
-    var birthday = new Date(
-      yearInput.current.value,
-      monthInput.current.value - 1,
-      dayInput.current.value
-    );
-
-    var diff = new Date(Date.now() - birthday.getTime());
-   
-    if (
-      diff.getUTCMonth() == today.getUTCMonth() &&
-      diff.getUTCDate() == today.getUTCDate()
-    ) {
-      setPopUp({
-        title: "Happy BirthDay",
-        text: " Today is a special day for you because today is your birthday. You better have a good time today.",
-      });
+  
+    let today = new Date();
+  
+    // Calculate age based on difference between birthdate and today's date
+    let age = today.getFullYear() - birthdate.getFullYear();
+    let month = today.getMonth() - birthdate.getMonth();
+    let day = today.getDate() - birthdate.getDate();
+  
+    // Adjust month and day components if necessary
+    if (month < 0 || (month === 0 && today.getDate() < birthdate.getDate())) {
+      age--;
+      month += 12;
     }
-    if (Date.now() < birthday.getTime()) {
+    if (day < 0) {
+      month--;
+      let daysInMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      day += daysInMonth;
+    }
+    if (age<=0&& (today.getMonth()<birthdate.getMonth()||today.getDate()<birthdate.getDate())) {
       setPopUp({
         title: "Calculation error",
-        text: "It seems there has been an error.  Please check your input before calculating,  as it seems you might have overshot the months or days",
+        text: "Invalid birthdate. Please enter a valid date.",
       });
-    } else {
-      setAge({
-        years: Math.abs(diff.getUTCFullYear() - today.getUTCFullYear()),
-        months: Math.abs(diff.getUTCMonth() - today.getUTCMonth()),
-        days: Math.abs(diff.getUTCDate() - today.getUTCDate()),
+      return;
+    }
+    // Set age state
+    setAge({ years: age, months: month, days: day });
+  
+    // Check if today is user's birthday
+    if (birthdate.getDate() === today.getDate() && birthdate.getMonth() === today.getMonth()) {
+      setPopUp({
+        title: "Happy Birthday!",
+        text: "Today is your birthday! Have a great day!",
       });
     }
   };
+  
+  
+
+  
   function closeModal() {
     setPopUp({ title: "", text: "" });
   }
@@ -68,6 +80,6 @@ function App() {
       <Footer />
     </React.Fragment>
   );
-}
+   }
 
 export default App;
