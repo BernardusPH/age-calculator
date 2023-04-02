@@ -37,7 +37,7 @@ function App() {
       let daysInMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
       day += daysInMonth;
     }
-    if (age<=0&& (today.getMonth()<birthdate.getMonth()||today.getDate()<birthdate.getDate())) {
+    if (today.getFullYear() == birthdate.getFullYear()&& (today.getMonth()<birthdate.getMonth()||today.getDate()<birthdate.getDate())) {
       setPopUp({
         title: "Calculation error",
         text: "Invalid birthdate. Please enter a valid date.",
