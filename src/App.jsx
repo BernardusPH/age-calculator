@@ -37,15 +37,16 @@ function App() {
       let daysInMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
       day += daysInMonth;
     }
-    if (today.getFullYear() == birthdate.getFullYear()&& (today.getMonth()<birthdate.getMonth()||today.getDate()<birthdate.getDate())) {
+    if (today.getFullYear() == birthdate.getFullYear()&& (today.getMonth()<birthdate.getMonth()||today.getDate()<birthdate.getDate()) ) {
       setPopUp({
         title: "Calculation error",
         text: "Invalid birthdate. Please enter a valid date.",
       });
       return;
     }
-    // Set age state
-    setAge({ years: age, months: month, days: day });
+
+   
+    
   
     // Check if today is user's birthday
     if (birthdate.getDate() === today.getDate() && birthdate.getMonth() === today.getMonth()) {
@@ -54,6 +55,7 @@ function App() {
         text: "Today is your birthday! Have a great day!",
       });
     }
+    setAge({ years: age, months: month, days: day });
   };
   
   

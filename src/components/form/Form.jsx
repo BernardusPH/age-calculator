@@ -32,7 +32,7 @@ function Form(props) {
       props.monthInput.current.value < 1
     )
       MonthErrorText = "Must be a valid Month";
-    if (props.yearInput.current.value == "" || Number(props.yearInput.current.value) < 1)
+    if (props.yearInput.current.value == "" ||  Number(props.yearInput.current.value) < 1800)
       YearErrorText = "Must be a valid Year";
     if (+props.yearInput.current.value > d.getFullYear())
       YearErrorText = "Must be in the past";
