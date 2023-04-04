@@ -1,8 +1,9 @@
 .user-age-container {
   list-style: none;
+  line-height: 1.2;
 }
 .user-age-container span {
-  font-size: 1.7rem;
+  font-size: 1.75rem;
   font-weight: var(--hugeIt);
   font-style: italic;
 }

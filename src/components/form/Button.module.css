@@ -32,7 +32,9 @@ hr {
 }
 
 @media (min-width: 800px) {
- 
+  .form-submit-container{
+    height: 96px; ;
+  }
   .form-submit-button {
     width: 96px;
     height: 96px;
